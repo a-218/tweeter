@@ -1,0 +1,32 @@
+
+
+.text-area {
+ 
+  color: white;
+  font-family: 'Bungee';
+}
+
+.tweet-button {
+  
+  background-color: #4056A1;
+  color: white;
+}
+
+textarea {
+  display: flex;
+  width:100%;
+  font-family: inherit;
+  border:0;
+  background-color: inherit;
+  border-bottom: black 5px solid;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+
+}
+
+.text-count{
+  float: right; 
+  font-family: 'Bungee';
+  color: black;
+
+}

@@ -1,0 +1,50 @@
+nav {
+    /* adding font from google  */
+    display: flex;
+    height: 100px;
+    width: 100%;
+    color: white;
+    background-color: #4056A1;
+    font-size: 40px;
+    font-family: 'Bungee';
+    align-items: center;
+    padding-left: 24px;
+    justify-content: space-between;
+    justify-self: flex-end;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+  
+}
+
+text {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+.fas {
+    color: red;
+    align-self: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding-right: 24px;
+}
+
+
+/* 
+span {
+
+  margin-top: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+} */
