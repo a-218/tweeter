@@ -45,7 +45,9 @@
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
     <!---TIme Ago script tag-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.1.1/vue.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+        integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -82,35 +84,10 @@
             </form>
         </section>
 
+        <section class='tweet-container'></section>
         <br>
         <br>
         <div>
-
-            <article>
-                <!-- <section class="tweet-containers"> -->
-                <div class='header'>
-                    <p class="icon"> <i class="fas fa-user-graduate"></i> </p>
-                    <p class='name'> Rhoda Jacobs</p>
-                    <p class='tweet-handle'>@RHO</p><!-- include header-->
-                </div>
-
-                <h3 class='tweet'>Hello World!</h3>
-                <!-- <text class="Time" style="color: black;">10 days ago</text> -->
-
-                <footer class='foot'>
-                    <div>
-                        <span class="time-ago" datetime="2016-07-07T09:24:17Z">${timeago.format(1473245023718)}ago </span>
-                    </div>
-
-                <div class='tweet-icons'>
-                    <i class="fas fa-flag"></i>
-                    <i class="fas fa-retweet"></i>
-                    <i class="fas fa-heart"></i>
-                </div>
-                </footer>
-                <!-- </section> -->
-            </article>
-
         </div>
 
 

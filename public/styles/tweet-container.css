@@ -4,6 +4,8 @@ article {
   padding: 10px;
   padding-bottom: 22px;
   box-shadow: 0px 3px 3px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 
 }
 
@@ -14,11 +16,18 @@ article:hover{
 .header{
   display:flex;
   justify-content: space-between;
+  margin-left: 5%;
+  margin-right:5%;
+}
+
+footer{
+  margin-left:2%
 }
 
 .tweet-handle{
 
   margin-top: 32px;
+  
 }
 
 .name{
@@ -30,6 +39,7 @@ article:hover{
 
 .icon{
   margin-top: 32px;
+
 }
 
 .tweet-icons{
@@ -37,35 +47,26 @@ article:hover{
   display: flex;
   width: 100%;
   justify-content: flex-end;
+
+  margin-right: 2%;
+
 }
 
-/* 
-.tweet-logo{
-  display: flex;
+.time-ago{
   flex-direction: row;
-  align-content: left;
-  justify-content: left;
-  padding-right: 24px;
-} */
+  display: flex;
+  width: 100%;
+
+  margin-left: 5%;
+  margin-right:5%;
+
+}
 
 .tweet{
   border-bottom: black 5px solid;
   margin-bottom: 10px;
   padding-bottom: 22px;
 }
-/* 
-.tweet-handle{
-
-  margin-right: 10px;
-  font-size: 30px;
-
-}
-
-
-.tweet-handle:hover{
-  box-shadow: 0px 0px 0px rgb(149, 149, 162);
-}
- */
 
 
 article header {
