@@ -27,6 +27,8 @@ $(document).ready(function() {
     if (x < 0){
     
       counterTag.css('color', 'red');
+    } else {
+      counterTag.css('color', 'black');
     }
   
   });  

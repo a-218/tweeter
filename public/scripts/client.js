@@ -3,39 +3,20 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd"
-//     },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ]
+
 
 $(document).ready(function () {
+
   const renderTweets = function (tweets) {
     //define teh tweet container following the index html as a tweet container
-    const tweetContainer = $('.tweet-container')
+    $('.tweet-container').empty() ;
+
+    const tweetContainer = $('.tweet-container');
+
     // loops through tweets
+
     tweets.forEach(tweet => {
-      tweetContainer.append(createTweetElement(tweet));
+      tweetContainer.prepend(createTweetElement(tweet));
     });
 
   }
@@ -75,50 +56,65 @@ $(document).ready(function () {
     return html;
   }
 
+  const loadTweets = function () {
 
+    $.ajax({   
 
-  const loadTweets = function (){ 
-
-    $.ajax({   //ajax sending serialize data to the tweets route on the actual website.
       url: '/tweets', //acutal server route 
       method: 'GET',
-      data:{
-        format: 'json'
-      },
+      data: { format: 'json' },
       dataType: "json",
-      success: function(data){
-        //if request if made successfully then the response represent the data
+      success: function (data) {
 
-        //$( "#result" ).empty().append( response );
-        console.log('response from the GET', data);
+        //if request if made successfully then the response represent the data
+        //render and output the data
         renderTweets(data);
-        //return data;
-    }
+
+      }
     })
   }
   loadTweets();
-
-  //renderTweets(data);
-
 
 
   $("form").on("submit", function (event) {  //form submission--- $this referring to the form
     event.preventDefault();
     console.log("the default event result has been prevented");
-    //const $button = $('.tweet-button'); 
-    const formData = $( this ).serialize() 
+    const formData = $(this).serialize()
 
-    
+    ////Validation Error check here
+    let form = formData.replace("text=", "");
+
+    if (form.length === 0) {
+      $('.error').show();
+      return;
+    }
+
+    if (form.length > 140) {
+      $('.error-2').show();
+      return;
+    }
+
+
+    ///posting teh tweetts
     $.ajax({   //ajax sending serialize data to the tweets route on the actual website.
-        url: '/tweets', //acutal server route 
-        method: 'POST',
-        data: formData
-      })
-      .then(
-        function () {
-        console.log('Success:', formData);
-      });
+      url: '/tweets', //acutal server route 
+      method: 'POST',
+      data: formData,
+    })
+    .then(
+        function (latestTweet) {
+          
+          loadTweets();
+          //ALTERNATIVE renderTweets(latestTweet); used this along with client js [twee]
+          //$('.tweet-container').append(loadTweets(createTweet(formData)));
+
+        });
+
+        //change the text box to empty and number back to 140 after submit
+        $('#tweet-text').val('')
+        $('.text-count').text('140')
   });
+
 });
 
 

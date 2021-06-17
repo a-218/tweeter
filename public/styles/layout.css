@@ -43,3 +43,10 @@ main {
     margin-right: 5%;
     width: 90%
 }
+
+.error, .error-2{
+    display: none;
+    color:red;
+    border: 5px solid red;
+
+}
