@@ -3,45 +3,41 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+// const data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd"
+//     },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   }
+// ]
 
 $(document).ready(function () {
   const renderTweets = function (tweets) {
-    // loops through tweets
+    //define teh tweet container following the index html as a tweet container
     const tweetContainer = $('.tweet-container')
+    // loops through tweets
     tweets.forEach(tweet => {
       tweetContainer.append(createTweetElement(tweet));
     });
-    console.log('tweet containter is', tweetContainer)
 
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
-
-    // createTweetElement(tweet);
   }
 
 
@@ -76,12 +72,54 @@ $(document).ready(function () {
               </article>
            
   `
-
-
-  
     return html;
   }
 
-  renderTweets(data);
 
+
+  const loadTweets = function (){ 
+
+    $.ajax({   //ajax sending serialize data to the tweets route on the actual website.
+      url: '/tweets', //acutal server route 
+      method: 'GET',
+      data:{
+        format: 'json'
+      },
+      dataType: "json",
+      success: function(data){
+        //if request if made successfully then the response represent the data
+
+        //$( "#result" ).empty().append( response );
+        console.log('response from the GET', data);
+        renderTweets(data);
+        //return data;
+    }
+    })
+  }
+  loadTweets();
+
+  //renderTweets(data);
+
+
+
+  $("form").on("submit", function (event) {  //form submission--- $this referring to the form
+    event.preventDefault();
+    console.log("the default event result has been prevented");
+    //const $button = $('.tweet-button'); 
+    const formData = $( this ).serialize() 
+
+    
+    $.ajax({   //ajax sending serialize data to the tweets route on the actual website.
+        url: '/tweets', //acutal server route 
+        method: 'POST',
+        data: formData
+      })
+      .then(
+        function () {
+        console.log('Success:', formData);
+      });
+  });
 });
+
+
+
