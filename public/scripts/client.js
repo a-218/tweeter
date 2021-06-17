@@ -24,23 +24,29 @@ $(document).ready(function () {
 
   const createTweetElement = function (tweet) {
     //taking in the tweet data and pass into template literal into the html format/
+    
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
 
     let html = `
   
                 <!-- <section class="tweet-containers"> -->
               <article>
                 <div class='header'>
-                    <p class="icon"> <img src = ${tweet.user.avatars} </p>
-                    <p class='name'> ${tweet.user.name}</p>
-                    <p class='tweet-handle'>${tweet.user.handle}</p><!-- include header-->
+                    <p class="icon"> <img src = ${escape(tweet.user.avatars)} </p>
+                    <p class='name'> ${escape(tweet.user.name)}</p>
+                    <p class='tweet-handle'>${escape(tweet.user.handle)}</p><!-- include header-->
                 </div>
 
-                <h3 class='tweet'>${tweet.content.text}</h3>
+                <h3 class='tweet'>${escape(tweet.content.text)}</h3>
                 <span class ='line'></span>
 
                 <footer class='foot'>
                     <div>
-                        <span class="time-ago" >${timeago.format(tweet.created_at)}</span>
+                        <span class="time-ago" >${timeago.format(escape(tweet.created_at))}</span>
                     </div>
 
                 <div class='tweet-icons'>
