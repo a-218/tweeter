@@ -71,7 +71,6 @@ $(document).ready(function () {
       data: { format: 'json' },
       dataType: "json",
       success: function (data) {
-
         //if request if made successfully then the response represent the data
         //render and output the data
         renderTweets(data);
@@ -85,6 +84,8 @@ $(document).ready(function () {
   $("form").on("submit", function (event) {  //form submission--- $this referring to the form
     event.preventDefault();
     console.log("the default event result has been prevented");
+    $('.error').hide();
+    $('.error-2').hide();
     const formData = $(this).serialize()
 
     ////Validation Error check here
@@ -103,6 +104,7 @@ $(document).ready(function () {
 
     ///posting teh tweetts
     $.ajax({   //ajax sending serialize data to the tweets route on the actual website.
+
       url: '/tweets', //acutal server route 
       method: 'POST',
       data: formData,
@@ -111,8 +113,8 @@ $(document).ready(function () {
         function (latestTweet) {
           
           loadTweets();
-          //ALTERNATIVE renderTweets(latestTweet); used this along with client js [twee]
-          //$('.tweet-container').append(loadTweets(createTweet(formData)));
+    
+
 
         });
 
@@ -120,6 +122,8 @@ $(document).ready(function () {
         $('#tweet-text').val('')
         $('.text-count').text('140')
   });
+
+
 
 });
 

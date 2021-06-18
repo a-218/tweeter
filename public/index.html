@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
@@ -21,15 +22,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
         rel="stylesheet">
+    
+    <!--header CSS linking into styles folder-->
+     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
     <!--Nav CSS  linking into styles folder-->
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-
-    <!--header CSS linking into styles folder-->
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
     <!--tweet linking into styles folder-->
     <link rel="stylesheet" href="/styles/new-tweets.css" type="text/css" />
@@ -85,33 +86,13 @@
                 </div>
             </form>
         </section>
-
+       
         <section class='tweet-container'></section>
         <br>
         <br>
-        <div>
-        </div>
-
-
     </main>
 </body>
 
 
-
-
-<!-- <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script>
-$(function() {
-  const $button = $('#load-more-posts');
-  $button.on('click', function () {
-    console.log('Button clicked, performing ajax call...');
-    $.ajax('more-posts.html', { method: 'GET' })
-    .then(function (morePostsHtml) {
-      console.log('Success: ', morePostsHtml);
-      $button.replaceWith(morePostsHtml);
-    });
-  });
-});
-</script> -->
 
 </html>

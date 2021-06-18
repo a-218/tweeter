@@ -33,15 +33,11 @@ body {
  */
 
 
-/* nav {
-   font-family:'Bungee';
- } */
-
 main {
     background-color: inherit;
     margin-left: 5%;
     margin-right: 5%;
-    width: 90%
+    width: 90%;
 }
 
 .error, .error-2{
@@ -50,3 +46,45 @@ main {
     border: 5px solid red;
 
 }
+
+/* Desktop Sizing */
+ @media only screen and (min-width: 1023px) {
+    
+    body{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .profile{
+
+        display: flex;
+        margin-top: 15%;
+        align-self: flex-start;
+        margin-left: 6%;
+        width: 70%;
+        height:100%;
+        margin-right:10%;
+    }
+
+    .profile img{
+        margin-top: 4%;
+        width: 100%;
+    }
+    .profile h2{
+        size: 300%;
+        color:white;
+        margin-top: 0;
+    }
+   
+    .container {
+        display: flex;
+        margin-top: 12%;
+        align-self: flex-start;
+        flex-flow: column;
+    }
+}
+
+
+
+
+

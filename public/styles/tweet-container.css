@@ -1,3 +1,5 @@
+/* styling of all the tweets that are being posted */
+
 article {
   width: 100%;
   border: 5px solid black;
@@ -56,7 +58,7 @@ footer{
   flex-direction: row;
   display: flex;
   width: 100%;
-
+  width:max-content;
   margin-left: 5%;
   margin-right:5%;
 
